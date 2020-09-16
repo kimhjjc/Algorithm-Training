@@ -1,0 +1,20 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+string solution(string s) {
+	
+	string answer = "";
+	int mid_num = s.size()/2;
+
+	if (s.size() % 2 == 0)
+	{
+		answer.push_back(s[mid_num - 1]);
+		answer.push_back(s[mid_num]);
+	}
+	else
+		answer.push_back(s[mid_num]);
+
+	return answer;
+}
