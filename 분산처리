@@ -1,0 +1,32 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int T;
+	int *a;
+	int *b;
+	int answer = 1;
+
+	cin >> T;
+	a = new int[T];
+	b = new int[T];
+
+	for (int i = 0; i < T; i++)
+		cin >> a[i] >> b[i];
+
+	for (int j = 0; j < T; j++)
+	{
+		answer = 1;
+		for (int i = 0; i < b[j]; i++)
+			answer = (answer * a[j]) % 10;
+		if (answer == 0)
+			answer = 10;
+
+		cout << answer << endl;
+	}
+
+	delete[] a;
+	delete[] b;
+}
