@@ -1,0 +1,31 @@
+#include <iostream>
+
+using namespace std;
+int selfnumber[10001];
+
+void find_selfnumber(int num)
+{
+	if (num > 10000)
+		return;
+	
+	int sum = num;
+
+	while (num != 0)
+	{
+		sum += num % 10;
+		num /= 10;
+	}
+	selfnumber[sum] = 1;
+	find_selfnumber(sum);
+
+}
+
+int main()
+{
+	for (int i = 1; i < 10000; i++)
+		find_selfnumber(i);
+
+	for (int i = 1; i < 10000; i++)
+		if (selfnumber[i] != 1)
+			cout << i << endl;
+}
