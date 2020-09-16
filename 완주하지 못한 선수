@@ -1,0 +1,21 @@
+#include <string>
+#include <vector>
+#include <unordered_map>
+
+using namespace std;
+
+string solution(vector<string> participant, vector<string> completion)
+{
+	unordered_map<string, int> participants;
+
+	for (string part : participant)
+		participants[part];
+
+	for (string part : completion)
+		participants[part]++;
+
+	for (auto pair : participants)
+		if (pair.second == 0)
+			return pair.first;
+	
+}
