@@ -1,0 +1,23 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+string solution(string s) {
+    string answer = s;
+    int word_number = 0;
+    
+    for(auto &c : answer)
+    {
+        if(c == ' ')
+        {
+            word_number = 0;
+            continue;
+        }
+        c = (word_number % 2 == 0) ? c = toupper(c) : c = tolower(c);
+        
+        word_number++;
+    }
+    
+    return answer;
+}
