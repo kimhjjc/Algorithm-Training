@@ -1,0 +1,23 @@
+#include <string>
+#include <vector>
+#include <iostream>
+using namespace std;
+
+bool solution(string s)
+{
+	bool answer = true;
+	pair<int, int> count;
+
+	for (auto c : s)
+		if (toupper(c) == 'P')
+			count.first++;
+		else if (toupper(c) == 'Y')
+			count.second++;
+		
+	if (count.first == count.second)
+		answer = true;
+	else
+		answer = false;
+	
+	return answer;
+}
