@@ -1,0 +1,35 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int solution(vector<vector<int>> board, vector<int> moves) {
+	int answer = 0;
+	vector<int> basket;
+
+	// 크레인 작동 순서
+	for (auto move : moves)
+		// 크레인 내리기
+		for (int i = 0; i < board.size(); i++)
+		{
+			// 인형이 잡힌 경우
+			if (board[i][move - 1] != 0)
+			{
+				// 바스켓에 인형을 넣음
+				basket.push_back(board[i][move - 1]);
+				board[i][move - 1] = 0;
+				// 바스켓에 같은 모양의 인형이 연속해서 있는지 체크
+				if(basket.size() > 1)
+					if (basket[basket.size() - 1] == basket[basket.size() - 2])
+					{
+						basket.pop_back();
+						basket.pop_back();
+						answer += 2;
+					}
+
+				break;
+			}
+		}
+
+	return answer;
+}
