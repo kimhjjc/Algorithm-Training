@@ -1,0 +1,26 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int solution(int n) {
+	int answer = 0;
+	vector<bool> prime_number_check(n + 1,true);
+	vector<int> prime_number;
+	for (int i = 2; i <= n; i++)
+	{
+		if (prime_number_check[i] == false) continue;
+		prime_number.push_back(i);
+		
+		int k = 2;
+		while (i * k <= n)
+		{
+			prime_number_check[i*k] = false;
+			k++;
+		}
+	}
+
+	answer = prime_number.size();
+
+	return answer;
+}
